@@ -34,14 +34,9 @@ ENV SS_SERVER=${SS_SERVER}
 ENV SS_PORT=${SS_PORT}
 ENV SS_METHOD=${SS_METHOD}
 ENV SS_PASSWORD=${SS_PASSWORD}
-ENV SS_PLUGIN_OPTS=${SS_PLUGIN_OPTS}
 RUN mkdir /app
 WORKDIR /app
-RUN wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz
-RUN tar xfvz v2ray-plugin-linux-amd64-v1.3.1.tar.gz
-RUN mkdir -p /usr/local/bin
 RUN ls
-RUN mv /app/v2ray-plugin_linux_amd64 /usr/local/bin/v2ray-plugin
 RUN chown nobody:nogroup /app
 WORKDIR /app/privoxy
 COPY ./privoxy.conf ./config
